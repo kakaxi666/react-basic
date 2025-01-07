@@ -1,0 +1,35 @@
+<button id="decrement">-</button>
+<span id="count"></span>
+<button id="increment">+</button>
+<script src="https://unpkg.com/redux@4.0.5/dist/redux.min.js"></script>
+<script>
+  function reducer(state = {count:0}, action) {
+    if(action.type == "INCREMENT") {
+      return {count: state.count + 1}
+    }
+    if(action.type == "DECREMENT") {
+      return {count: state.count - 1}
+    }
+    return state
+  }
+
+  const store = Redux.createStore(reducer)
+
+  store.subscribe(() => {
+    console.log('state变化了',store.getState());
+    document.getElementById('count').innerHTML = store.getState().count;
+  })
+
+  const inBtn = document.getElementById('increment');
+  inBtn.addEventListener('click', () => {
+    store.dispatch({type: "INCREMENT"});
+  })
+
+  const deBtn = document.getElementById('decrement');
+  deBtn.addEventListener('click', () => {
+    store.dispatch({type: "DECREMENT"});
+  })
+  
+  
+  
+</script>

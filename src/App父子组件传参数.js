@@ -5,7 +5,7 @@ function Son(props){
 }
 
 function App() {
-    const name = '张三'
+//   const name = '张三'
   return (
     <div>
         {/* <Son 
