@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App状态管理redux';
+// import App from './App状态管理redux';
 import store from './store';
 import { Provider } from 'react-redux';
+import {RouterProvider} from 'react-router-dom'
 // import reportWebVitals from './reportWebVitals';
+import router from './router';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <App />
+    {/* <App /> */}
+    <RouterProvider router={router}></RouterProvider>
   </Provider>
 );
 
